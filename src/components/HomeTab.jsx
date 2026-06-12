@@ -20,7 +20,7 @@ function HomeTab({ setActiveTab }) {
         </div>
       </div>
       <div className="hero-visual-side">
-        <img src='/ZENITH.png'/>
+        <img src="/ZENITH.png"/>
       </div>
     </div>
   );
