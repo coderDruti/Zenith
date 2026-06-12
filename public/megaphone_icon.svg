@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <!-- Background -->
+  <rect width="512" height="512" fill="#091225" />
+  
+  <!-- Outer Rounded Border -->
+  <rect x="50" y="50" width="412" height="412" rx="80" fill="none" stroke="#e2a03f" stroke-width="6" />
+  
+  <!-- Megaphone Group -->
+  <g stroke="#e2a03f" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <!-- Back Cylinder (Transducer) -->
+    <rect x="135" y="216" width="40" height="80" rx="12" />
+    
+    <!-- Handle -->
+    <path d="M 155 296 L 170 360 L 210 360 L 195 302" />
+    
+    <!-- Cone Top and Bottom Lines -->
+    <path d="M 175 220 L 295 160" />
+    <path d="M 175 292 L 295 352" />
+    
+    <!-- Mouth Bell (Ellipse) -->
+    <ellipse cx="295" cy="256" rx="16" ry="96" />
+    
+    <!-- Inner Dome -->
+    <path d="M 295 220 A 36 36 0 0 1 295 292" />
+    
+    <!-- Sound Wave -->
+    <path d="M 345 190 A 76 76 0 0 1 345 322" />
+  </g>
+</svg>
