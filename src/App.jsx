@@ -8,10 +8,21 @@ import EventsTab from './components/EventsTab';
 import MilestonesTab from './components/MilestonesTab';
 import ContactTab from './components/ContactTab';
 import WhatsAppWidget from './components/WhatsAppWidget';
+import Basketball from './pages/Basketball';
 
 function App() {
   const [activeTab, setActiveTab] = useState('home');
   const [glow, setGlow] = useState(false);
+  const [currentPath, setCurrentPath] = useState(window.location.pathname);
+
+  // Synchronize path state on popstate (browser back/forward navigation)
+  useEffect(() => {
+    const handlePopState = () => {
+      setCurrentPath(window.location.pathname);
+    };
+    window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
+  }, []);
 
   // Dynamic glow effect on tab transition
   useEffect(() => {
@@ -19,6 +30,10 @@ function App() {
     const timer = setTimeout(() => setGlow(false), 800);
     return () => clearTimeout(timer);
   }, [activeTab]);
+
+  if (currentPath === '/bounce') {
+    return <Basketball />;
+  }
 
   return (
     <div className="app-wrapper">

@@ -5,7 +5,12 @@ function EventsCard({ video, image, icon, title, webpageUrl, posterUrl }) {
 
   const handleCardClick = () => {
     if (webpageUrl) {
-      window.open(webpageUrl, '_self', 'noopener,noreferrer');
+      if (webpageUrl.startsWith('/')) {
+        window.history.pushState({}, '', webpageUrl);
+        window.dispatchEvent(new PopStateEvent('popstate'));
+      } else {
+        window.open(webpageUrl, '_self', 'noopener,noreferrer');
+      }
     } else if (posterUrl) {
       setIsModalOpen(!isModalOpen);
     }

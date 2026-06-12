@@ -4,10 +4,10 @@ import EventsCard from './EventsCard';
 function EventsTab() {
   const featuredEvents = [
     {
-      video: "/ZB.mov",
+      video: "/ZB 2.mov",
       icon:(<img src="/bounce.png" style={{height:"70px",width:"100px"}}/>),
       title: "Bounce",
-      webpageUrl: "https://zefc.in/bounce",
+      webpageUrl: "/bounce",
     },
     {
       video: "/video/udbhav.mp4",

@@ -1582,3 +1582,444 @@ body::after {
 .text-gold {
   color: var(--accent-gold);
 }
+
+/* Basketball Page Styles */
+.basketball-page {
+  min-height: 100vh;
+  padding: 7rem 1rem 4rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+@media (min-width: 768px) {
+  .basketball-page {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+.basketball-container {
+  max-width: 72rem;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  align-items: stretch;
+  position: relative;
+  z-index: 10;
+}
+
+@media (min-width: 768px) {
+  .basketball-container {
+    gap: 3rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .basketball-container {
+    grid-template-columns: repeat(12, 1fr);
+  }
+}
+
+/* Left Panel */
+.basketball-left-section {
+  position: relative;
+  overflow: hidden;
+  padding: 2rem;
+  border-radius: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  min-height: 500px;
+}
+
+@media (min-width: 1024px) {
+  .basketball-left-section {
+    grid-column: span 6;
+  }
+}
+
+.basketball-bg-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -20;
+}
+
+.basketball-video-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(3, 7, 18, 0.65);
+  z-index: -10;
+}
+
+.basketball-left-content {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  width: 100%;
+}
+
+.basketball-brand-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  cursor: pointer;
+  width: fit-content;
+}
+
+.basketball-back-home {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-bottom: 1.5rem;
+  transition: color 0.2s ease;
+  width: fit-content;
+}
+
+.basketball-back-home:hover {
+  color: var(--accent-gold);
+}
+
+.basketball-brand-logo {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 1rem;
+  border: 1.5px solid var(--border-gold);
+  object-fit: cover;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+}
+
+.basketball-brand-subtitle {
+  color: var(--accent-gold);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 0.75rem;
+}
+
+.basketball-brand-title {
+  color: var(--text-primary);
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.15rem;
+  line-height: 1.2;
+  margin-top: 0.25rem;
+}
+
+.basketball-hero-title {
+  font-family: var(--font-display);
+  font-weight: 800;
+  line-height: 1.15;
+  margin-bottom: 1.2rem;
+  color: var(--text-primary);
+  font-size: 1.8rem;
+}
+
+@media (min-width: 768px) {
+  .basketball-hero-title {
+    font-size: 2.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .basketball-hero-title {
+    font-size: 2.8rem;
+  }
+}
+
+.basketball-hero-subtitle {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+  letter-spacing: 1.5px;
+  margin-bottom: 2rem;
+}
+
+@media (min-width: 768px) {
+  .basketball-hero-subtitle {
+    font-size: 0.95rem;
+  }
+}
+
+.basketball-feature-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.basketball-feature-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background-color: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border-glass);
+  padding: 0.75rem 1rem;
+  border-radius: 0.75rem;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.basketball-feature-item:hover {
+  background-color: rgba(255, 255, 255, 0.06);
+  border-color: var(--border-glass-hover);
+}
+
+.basketball-feature-label {
+  color: var(--text-primary);
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.basketball-meta-section {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  margin-top: 2rem;
+}
+
+@media (min-width: 640px) {
+  .basketball-meta-section {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .basketball-meta-section {
+    grid-template-columns: 1fr;
+  }
+}
+
+.basketball-meta-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.basketball-meta-label {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.basketball-meta-value {
+  font-size: 0.875rem;
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+/* Right Panel Form */
+.basketball-right-section {
+  background-color: #0b1a2b;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 2rem;
+  border-radius: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+@media (min-width: 1024px) {
+  .basketball-right-section {
+    grid-column: span 6;
+  }
+}
+
+.basketball-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.basketball-form-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: var(--text-primary);
+  text-align: center;
+  font-size: 1.5rem;
+  letter-spacing: 1px;
+}
+
+@media (min-width: 768px) {
+  .basketball-form-title {
+    font-size: 1.85rem;
+  }
+}
+
+.basketball-form-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+@media (min-width: 640px) {
+  .basketball-form-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.basketball-input {
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border-glass);
+  border-radius: 0.75rem;
+  padding: 0.75rem 1rem;
+  color: var(--text-primary);
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+.basketball-input::placeholder {
+  color: var(--text-muted);
+}
+
+.basketball-input:focus {
+  border-color: var(--accent-gold);
+  background-color: rgba(255, 255, 255, 0.06);
+  box-shadow: 0 0 10px rgba(245, 158, 11, 0.1);
+}
+
+.basketball-select {
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border-glass);
+  border-radius: 0.75rem;
+  padding: 0.75rem 2.5rem 0.75rem 1rem;
+  color: var(--text-primary);
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  outline: none;
+  appearance: none;
+  cursor: pointer;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23f59e0b' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 1.2rem;
+}
+
+.basketball-select:focus {
+  border-color: var(--accent-gold);
+  background-color: rgba(255, 255, 255, 0.06);
+}
+
+.basketball-section-subheader {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--accent-gold);
+  margin-bottom: 0.8rem;
+  font-family: var(--font-display);
+}
+
+.basketball-upload-label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 1.5px dashed rgba(255, 255, 255, 0.15);
+  border-radius: 0.75rem;
+  padding: 1.25rem 1rem;
+  background-color: rgba(255, 255, 255, 0.02);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-height: 100px;
+  text-align: center;
+}
+
+.basketball-upload-label:hover {
+  border-color: var(--accent-gold);
+  background-color: rgba(255, 255, 255, 0.04);
+}
+
+.basketball-upload-thumb {
+  width: 4.5rem;
+  height: 4.5rem;
+  object-fit: cover;
+  border-radius: 0.5rem;
+  border: 1px solid var(--border-glass);
+}
+
+.basketball-upload-icon {
+  font-size: 1.25rem;
+  margin-bottom: 0.25rem;
+  color: var(--accent-gold);
+}
+
+.basketball-upload-text {
+  font-size: 0.7rem;
+  color: var(--text-secondary);
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.basketball-submit-btn {
+  width: 100%;
+  padding: 1.1rem;
+  background-color: var(--accent-gold);
+  color: var(--bg-dark);
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  border-radius: 0.75rem;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(245, 158, 11, 0.2);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.basketball-submit-btn:hover {
+  background-color: var(--accent-gold-hover);
+  box-shadow: 0 0 20px rgba(245, 158, 11, 0.45);
+  transform: translateY(-2px);
+}
+
+.basketball-submit-btn:active {
+  transform: translateY(0) scale(0.98);
+}
+
+.basketball-message {
+  text-align: center;
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 0.85rem;
+  border-radius: 0.5rem;
+  margin-top: 1rem;
+}
+
+.basketball-message.error {
+  background-color: rgba(239, 68, 68, 0.1);
+  color: #f87171;
+  border: 1px solid rgba(239, 68, 68, 0.2);
+}
+
+.basketball-message.success {
+  background-color: rgba(34, 197, 94, 0.1);
+  color: #4ade80;
+  border: 1px solid rgba(34, 197, 94, 0.2);
+}
