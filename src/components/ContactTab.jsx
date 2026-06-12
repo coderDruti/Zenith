@@ -1,27 +1,6 @@
-import React, { useState } from 'react';
-
 function ContactTab() {
-  const [formSubmitted, setFormSubmitted] = useState(false);
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    service: 'Financial Advisory',
-    message: ''
-  });
-
-  const handleFormChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-
-  const handleFormSubmit = (e) => {
-    e.preventDefault();
-    setFormSubmitted(true);
-    setTimeout(() => {
-      setFormSubmitted(false);
-      setFormData({ name: '', email: '', phone: '', service: 'Financial Advisory', message: '' });
-    }, 5000);
-  };
+  const mailAddress = "reachus@zefc.in"
+  const eventAddress = "event@zefc.in"
 
   return (
     <div className="tab-content-wrapper">
@@ -54,7 +33,7 @@ function ContactTab() {
             </div>
             <div className="info-content">
               <h4>Electronic Mail</h4>
-              <p>reachus@zefc.in / event@zefc.in</p>
+              <p><a href={`mailto:${mailAddress}`}>{mailAddress}</a> / <a href={`mailto:${eventAddress}`}>{eventAddress}</a></p>
             </div>
           </div>
 
@@ -66,96 +45,9 @@ function ContactTab() {
             </div>
             <div className="info-content">
               <h4>Contact Lines</h4>
-              <p>+91 8582888324 / +91 8582888393 / +91 8017387358</p>
+              <p><a href="tel:+918582888324">+91 8582888324 </a> / <a href="tel:+918582888393"> +91 8582888393</a> / <a href="tel:+918017387358">+91 8017387358</a></p>
             </div>
           </div>
-        </div>
-
-        <div className="contact-form-panel">
-          {formSubmitted ? (
-            <div className="success-banner">
-              <h4>Thank You!</h4>
-              <p>Your inquiry has been successfully sent to Zenith Advisors. We will respond within 24 hours.</p>
-            </div>
-          ) : (
-            <form className="contact-form" onSubmit={handleFormSubmit}>
-              <div className="form-row">
-                <div className="form-group">
-                  <label htmlFor="name">Full Name</label>
-                  <input 
-                    type="text" 
-                    id="name" 
-                    name="name" 
-                    required 
-                    className="form-input" 
-                    placeholder="e.g. John Doe"
-                    value={formData.name}
-                    onChange={handleFormChange}
-                  />
-                </div>
-                <div className="form-group">
-                  <label htmlFor="email">Email</label>
-                  <input 
-                    type="email" 
-                    id="email" 
-                    name="email" 
-                    required 
-                    className="form-input" 
-                    placeholder="john@company.com"
-                    value={formData.email}
-                    onChange={handleFormChange}
-                  />
-                </div>
-              </div>
-
-              <div className="form-row">
-                <div className="form-group">
-                  <label htmlFor="phone">Phone Number</label>
-                  <input 
-                    type="tel" 
-                    id="phone" 
-                    name="phone" 
-                    className="form-input" 
-                    placeholder="+91 XXXXX XXXXX"
-                    value={formData.phone}
-                    onChange={handleFormChange}
-                  />
-                </div>
-                <div className="form-group">
-                  <label htmlFor="service">Department</label>
-                  <select 
-                    id="service" 
-                    name="service" 
-                    className="form-select"
-                    value={formData.service}
-                    onChange={handleFormChange}
-                  >
-                    <option value="Financial Advisory">Financial Advisory</option>
-                    <option value="Event Planning">Event Management</option>
-                    <option value="Brand Consultation">Brand Consultation</option>
-                    <option value="General Support">General Support</option>
-                  </select>
-                </div>
-              </div>
-
-              <div className="form-group">
-                <label htmlFor="message">Message</label>
-                <textarea 
-                  id="message" 
-                  name="message" 
-                  required 
-                  className="form-textarea" 
-                  placeholder="Please describe your requirements..."
-                  value={formData.message}
-                  onChange={handleFormChange}
-                ></textarea>
-              </div>
-
-              <button type="submit" className="btn-primary">
-                Send Inquiry
-              </button>
-            </form>
-          )}
         </div>
       </div>
     </div>
