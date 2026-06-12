@@ -28,12 +28,24 @@ function App() {
       {/* Main Container mirroring the wireframe outlined section */}
       <main className="main-viewport">
         <div className={`wireframe-container ${glow ? 'active-glowing' : ''}`}>
-          {activeTab === 'home' && <HomeTab setActiveTab={setActiveTab} />}
-          {activeTab === 'about' && <AboutTab />}
-          {activeTab === 'services' && <ServicesTab />}
-          {activeTab === 'events' && <EventsTab />}
-          {activeTab === 'portfolio' && <MilestonesTab />}
-          {activeTab === 'contact' && <ContactTab />}
+          <div className={activeTab === 'home' ? 'tab-visible' : 'tab-hidden'}>
+            <HomeTab setActiveTab={setActiveTab} />
+          </div>
+          <div className={activeTab === 'about' ? 'tab-visible' : 'tab-hidden'}>
+            <AboutTab setActiveTab={setActiveTab} />
+          </div>
+          <div className={activeTab === 'services' ? 'tab-visible' : 'tab-hidden'}>
+            <ServicesTab />
+          </div>
+          <div className={activeTab === 'events' ? 'tab-visible' : 'tab-hidden'}>
+            <EventsTab />
+          </div>
+          <div className={activeTab === 'portfolio' ? 'tab-visible' : 'tab-hidden'}>
+            <MilestonesTab />
+          </div>
+          <div className={activeTab === 'contact' ? 'tab-visible' : 'tab-hidden'}>
+            <ContactTab />
+          </div>
         </div>
       </main>
 
