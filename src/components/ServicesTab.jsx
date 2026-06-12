@@ -12,7 +12,7 @@ function ServicesTab() {
         {/* Branding Card: Heart with sparkle star (feel + see) */}
         <ServiceCard
           icon={
-            <img src='/brands-svgrepo-com.svg'/>
+            <img src='/brands-svgrepo-com.svg' style={{width:"40px", height:"40px"}}/>
           }
           title="Branding"
           desc="Branding that people don't just see ---- they feel"
@@ -64,7 +64,7 @@ function ServicesTab() {
         {/* Corporate Events Card: Spotlight beams over corporate handshake / award badge (business + impression) */}
         <ServiceCard
           icon={
-            <img src='/corporate-svgrepo-com.svg' color='currentColor'/>
+            <img src='/corporate-svgrepo-com.svg' color='currentColor' style={{width:"40px", height:"40px"}}/>
           }
           title="Corporate Events"
           desc="Corporate events that mean business and leave an impression."
@@ -87,7 +87,7 @@ function ServicesTab() {
         {/* Social Events Card: Speech bubble with confetti explosion (connect + celebrate) */}
         <ServiceCard
           icon={
-            <img src='/chat-message-conversation-2-svgrepo-com.svg'/>
+            <img src='/chat-message-conversation-2-svgrepo-com.svg' style={{width:"40px", height:"40px"}}/>
           }
           title="Social Events"
           desc="Social events that connect people and create celebration."
