@@ -1208,61 +1208,366 @@ body::after {
   }
 }
 
-/* About Layout Tab styling */
-.about-layout-tab {
+/* About Tab Styling (Integrates with Zenith Premium Theme) */
+.about-tab-container {
   display: flex;
   flex-direction: column;
-  gap: 2.5rem;
+  gap: 3.5rem;
+  overflow-y: auto;
+  padding-right: 0.5rem;
 }
 
-.about-tab-intro {
-  max-width: 800px;
+.about-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
-.about-paragraph {
+/* Story Section */
+.about-story-layout {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+@media (max-width: 992px) {
+  .about-story-layout {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
+.about-label-pre {
+  color: var(--accent-gold);
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+.about-desc-paragraph {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.7;
+  margin-bottom: 1rem;
+}
+
+.about-cta-btn {
+  margin-top: 1rem;
+  align-self: flex-start;
+}
+
+.about-media-content {
+  position: relative;
+  width: 100%;
+}
+
+.about-img-wrapper {
+  position: relative;
+  width: 100%;
+  border-radius: 12px;
+  border: 1px solid var(--border-glass);
+  overflow: visible; /* to allow badge to overflow */
+}
+
+.about-story-img {
+  width: 100%;
+  height: 420px;
+  border-radius: 12px;
+  object-fit: cover;
+  display: block;
+}
+
+.about-badge-card {
+  position: absolute;
+  bottom: 20px;
+  left: -20px;
+  background: var(--accent-gold);
+  color: var(--bg-dark);
+  padding: 1rem 1.5rem;
+  border-radius: 10px;
+  font-weight: 800;
+  box-shadow: 0 10px 25px rgba(245, 158, 11, 0.25);
+  font-family: var(--font-display);
+}
+
+.about-badge-num {
+  font-size: 1.8rem;
+  line-height: 1;
+}
+
+.about-badge-label {
+  font-size: 0.65rem;
+  letter-spacing: 0.5px;
+  margin-top: 0.2rem;
+  text-transform: uppercase;
+}
+
+/* Statistics Bar */
+.about-stats-bar {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 2rem;
+  background: rgba(255, 255, 255, 0.01);
+  border: 1px solid var(--border-glass);
+  padding: 2.5rem 1.5rem;
+  border-radius: 12px;
+  backdrop-filter: blur(8px);
+}
+
+.about-stat-item-new {
+  text-align: center;
+  min-width: 160px;
+  flex: 1;
+}
+
+.about-stat-num-new {
+  font-family: var(--font-display);
+  font-size: 2.8rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 0.4rem;
+  text-shadow: 0 0 15px rgba(255, 255, 255, 0.08);
+}
+
+.about-stat-label-new {
+  font-size: 0.75rem;
+  color: var(--accent-gold);
+  letter-spacing: 1.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+/* Vision & Mission Card Grid */
+.about-vm-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+@media (max-width: 768px) {
+  .about-vm-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.about-vm-card {
+  border-radius: 12px;
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  height: 100%;
+}
+
+.vision-card-new {
+  background: rgba(255, 255, 255, 0.01);
+  border: 1px solid var(--border-glass);
+}
+
+.vision-card-new:hover {
+  border-color: var(--border-gold);
+  background: rgba(245, 158, 11, 0.02);
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.mission-card-new {
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.1) 0%, rgba(245, 158, 11, 0.2) 100%);
+  border: 1px solid var(--border-gold);
+  box-shadow: 0 4px 20px rgba(245, 158, 11, 0.05);
+}
+
+.mission-card-new:hover {
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.15) 0%, rgba(245, 158, 11, 0.25) 100%);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(245, 158, 11, 0.15);
+}
+
+.about-vm-icon {
+  width: 46px;
+  height: 46px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border-glass);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  font-size: 1.3rem;
+  color: var(--accent-gold);
+}
+
+.mission-card-new .about-vm-icon {
+  background: rgba(245, 158, 11, 0.15);
+  border-color: rgba(245, 158, 11, 0.3);
+}
+
+.about-vm-title {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+}
+
+.about-vm-text {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  line-height: 1.7;
+}
+
+/* Process Section */
+.about-process-layout {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 3rem;
+  margin-top: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .about-process-layout {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
+.about-process-left {
+  background: rgba(255, 255, 255, 0.01);
+  border: 1px solid var(--border-glass);
+  padding: 2.5rem;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-shadow: inset 0 0 20px rgba(255,255,255,0.01);
+}
+
+.about-process-step-num {
+  color: var(--accent-gold);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 1.5px;
+}
+
+.about-process-step-title {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 700;
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+}
+
+.about-process-step-desc {
+  color: var(--text-secondary);
   font-size: 1.05rem;
   line-height: 1.7;
-  color: var(--text-secondary);
-  margin-bottom: 1.2rem;
 }
 
-.about-stats-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 1.5rem;
-  margin-top: 1rem;
+.about-process-right {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  justify-content: center;
 }
 
-.about-stat-card {
-  background: rgba(255, 255, 255, 0.02);
+.about-process-nav-item {
+  background: transparent;
   border: 1px solid var(--border-glass);
-  padding: 2.5rem 2rem;
-  border-radius: 10px;
-  text-align: center;
-  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-}
-
-.about-stat-card:hover {
-  transform: translateY(-6px);
-  border-color: var(--border-gold);
-  background: rgba(245, 158, 11, 0.03);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3), 0 0 15px rgba(245, 158, 11, 0.05);
-}
-
-.about-stat-number {
+  color: var(--text-muted);
+  padding: 1rem 1.8rem;
+  border-radius: 50px;
+  text-align: left;
   font-family: var(--font-display);
-  font-size: 3rem;
-  font-weight: 800;
-  color: var(--accent-gold);
-  margin-bottom: 0.5rem;
-  text-shadow: 0 0 15px rgba(245, 158, 11, 0.15);
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  outline: none;
 }
 
-.about-stat-title {
-  font-size: 0.85rem;
+.about-process-nav-item:hover {
   color: var(--text-secondary);
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 1.2px;
+  border-color: var(--border-glass-hover);
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.about-process-nav-item.active {
+  background: rgba(245, 158, 11, 0.08);
+  border-color: var(--accent-gold);
+  color: var(--text-primary);
+  box-shadow: 0 0 15px rgba(245, 158, 11, 0.1);
+  padding-left: 2.2rem;
+}
+
+/* Gallery Row */
+.about-gallery-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .about-gallery-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+.about-gallery-item {
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--border-glass);
+}
+
+.about-gallery-img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.about-gallery-item:hover .about-gallery-img {
+  transform: scale(1.06);
+}
+
+/* Achievements Section */
+.about-achievements-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.about-achievement-card {
+  background: rgba(255, 255, 255, 0.01);
+  border: 1px solid var(--border-glass);
+  padding: 2.2rem;
+  border-radius: 12px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.about-achievement-card:hover {
+  border-color: var(--border-gold);
+  background: rgba(245, 158, 11, 0.02);
+  transform: translateY(-3px);
+}
+
+.about-achievement-title {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 700;
+  line-height: 1.4;
+  color: var(--text-primary);
+}
+
+.text-gold {
+  color: var(--accent-gold);
 }
