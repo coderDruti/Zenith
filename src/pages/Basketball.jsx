@@ -1,119 +1,13 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Logo = "/bounce.png";
 const BG = "/ZB 2.mov";
 
-
 function Basketball() {
-  const [formData, setFormData] = useState({
-    teamName: "",
-    captain: "",
-    email: "",
-    phone: "",
-    city: "",
-    category: "",
-    player1: "",
-    player2: "",
-    player3: "",
-    substitute: "",
-  });
-
-  const [message, setMessage] = useState("");
-  const [logo, setLogo] = useState(null);
-  const [logoPreview, setLogoPreview] = useState("");
-
-  const [payment, setPayment] = useState(null);
-  const [paymentPreview, setPaymentPreview] = useState("");
-
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    if (
-      !formData.teamName ||
-      !formData.captain ||
-      !formData.email ||
-      !formData.player1
-    ) {
-      setMessage("Please fill all required fields");
-      return;
-    }
-
-    setMessage("Registering team...");
-
-    try {
-      const submitData = new FormData();
-      
-      Object.keys(formData).forEach((key) => {
-        submitData.append(key, formData[key]);
-      });
-
-      if (logo) {
-        submitData.append("logo", logo);
-      }
-      if (payment) {
-        submitData.append("payment", payment);
-      }
-
-      const response = await fetch("/api/register", {
-        method: "POST",
-        body: submitData,
-      });
-
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-
-      const data = await response.json();
-      setMessage(data.message || "Team Registered Successfully 🏀");
-
-      setFormData({
-        teamName: "",
-        captain: "",
-        email: "",
-        phone: "",
-        city: "",
-        category: "",
-        player1: "",
-        player2: "",
-        player3: "",
-        substitute: "",
-      });
-      setLogo(null);
-      setLogoPreview("");
-      setPayment(null);
-      setPaymentPreview("");
-    } catch (error) {
-      console.error("Submission error:", error);
-      setMessage("Error registering team. Please try again.");
-    }
-  };
-
-  const handleLogoUpload = (e) => {
-    const file = e.target.files[0];
-    if (file) {
-      setLogo(file);
-      setLogoPreview(URL.createObjectURL(file));
-    }
-  };
-
-  const handlePaymentUpload = (e) => {
-    const file = e.target.files[0];
-    if (file) {
-      setPayment(file);
-      setPaymentPreview(URL.createObjectURL(file));
-    }
-  };
-
+  const navigate = useNavigate();
   const handleGoHome = () => {
-    window.history.pushState({}, '', '/');
-    window.dispatchEvent(new PopStateEvent('popstate'));
+    navigate("/");
   };
 
   return (

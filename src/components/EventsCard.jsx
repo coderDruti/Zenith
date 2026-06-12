@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 function EventsCard({ video, image, icon, title, webpageUrl, posterUrl }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const navigate = useNavigate();
 
   const handleCardClick = () => {
     if (webpageUrl) {
       if (webpageUrl.startsWith('/')) {
-        window.history.pushState({}, '', webpageUrl);
-        window.dispatchEvent(new PopStateEvent('popstate'));
+        navigate(webpageUrl);
       } else {
         window.open(webpageUrl, '_self', 'noopener,noreferrer');
       }

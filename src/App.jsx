@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import HomeTab from './components/HomeTab';
@@ -13,16 +14,6 @@ import Basketball from './pages/Basketball';
 function App() {
   const [activeTab, setActiveTab] = useState('home');
   const [glow, setGlow] = useState(false);
-  const [currentPath, setCurrentPath] = useState(window.location.pathname);
-
-  // Synchronize path state on popstate (browser back/forward navigation)
-  useEffect(() => {
-    const handlePopState = () => {
-      setCurrentPath(window.location.pathname);
-    };
-    window.addEventListener('popstate', handlePopState);
-    return () => window.removeEventListener('popstate', handlePopState);
-  }, []);
 
   // Dynamic glow effect on tab transition
   useEffect(() => {
@@ -31,45 +22,49 @@ function App() {
     return () => clearTimeout(timer);
   }, [activeTab]);
 
-  if (currentPath === '/bounce') {
-    return <Basketball />;
-  }
-
   return (
-    <div className="app-wrapper">
-      {/* Header component containing the company logo, tagline, and navigation capsules */}
-      <Header activeTab={activeTab} setActiveTab={setActiveTab} />
+    <Routes>
+      <Route path="/bounce" element={<Basketball />} />
+      <Route
+        path="/*"
+        element={
+          <div className="app-wrapper">
+            {/* Header component containing the company logo, tagline, and navigation capsules */}
+            <Header activeTab={activeTab} setActiveTab={setActiveTab} />
 
-      {/* Main Container mirroring the wireframe outlined section */}
-      <main className="main-viewport">
-        <div className={`wireframe-container ${glow ? 'active-glowing' : ''}`}>
-          <div className={activeTab === 'home' ? 'tab-visible' : 'tab-hidden'}>
-            <HomeTab setActiveTab={setActiveTab} />
-          </div>
-          <div className={activeTab === 'about' ? 'tab-visible' : 'tab-hidden'}>
-            <AboutTab setActiveTab={setActiveTab} />
-          </div>
-          <div className={activeTab === 'services' ? 'tab-visible' : 'tab-hidden'}>
-            <ServicesTab />
-          </div>
-          <div className={activeTab === 'events' ? 'tab-visible' : 'tab-hidden'}>
-            <EventsTab />
-          </div>
-          <div className={activeTab === 'portfolio' ? 'tab-visible' : 'tab-hidden'}>
-            <MilestonesTab />
-          </div>
-          <div className={activeTab === 'contact' ? 'tab-visible' : 'tab-hidden'}>
-            <ContactTab />
-          </div>
-        </div>
-      </main>
+            {/* Main Container mirroring the wireframe outlined section */}
+            <main className="main-viewport">
+              <div className={`wireframe-container ${glow ? 'active-glowing' : ''}`}>
+                <div className={activeTab === 'home' ? 'tab-visible' : 'tab-hidden'}>
+                  <HomeTab setActiveTab={setActiveTab} />
+                </div>
+                <div className={activeTab === 'about' ? 'tab-visible' : 'tab-hidden'}>
+                  <AboutTab setActiveTab={setActiveTab} />
+                </div>
+                <div className={activeTab === 'services' ? 'tab-visible' : 'tab-hidden'}>
+                  <ServicesTab />
+                </div>
+                <div className={activeTab === 'events' ? 'tab-visible' : 'tab-hidden'}>
+                  <EventsTab />
+                </div>
+                <div className={activeTab === 'portfolio' ? 'tab-visible' : 'tab-hidden'}>
+                  <MilestonesTab />
+                </div>
+                <div className={activeTab === 'contact' ? 'tab-visible' : 'tab-hidden'}>
+                  <ContactTab />
+                </div>
+              </div>
+            </main>
 
-      {/* Floating WhatsApp chat widget simulator */}
-      <WhatsAppWidget />
+            {/* Floating WhatsApp chat widget simulator */}
+            <WhatsAppWidget />
 
-      {/* Corporate details and copyright footer */}
-      <Footer />
-    </div>
+            {/* Corporate details and copyright footer */}
+            <Footer />
+          </div>
+        }
+      />
+    </Routes>
   );
 }
 
